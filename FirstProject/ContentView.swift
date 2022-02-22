@@ -13,8 +13,6 @@ struct ContentView: View {
             .font(.largeTitle)
             .padding()
             .background(Color.purple)
-            .padding()
-            .background(Color.white)
     }
 }
 
