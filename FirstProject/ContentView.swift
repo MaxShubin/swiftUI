@@ -12,8 +12,6 @@ struct ContentView: View {
         Text("Max Shubin")
             .font(.largeTitle)
             .padding()
-            .background(Color.yellow)
-            .padding()
             .background(Color.purple)
             .padding()
             .background(Color.white)
