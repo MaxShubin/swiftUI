@@ -4,26 +4,28 @@
 //
 //  Created by Max on 19.02.2022.
 //
-// @State + Button
+// @State + TextField + SecureField
 
 import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showDetail = false
+    @State private var name = ""
+    @State private var pass = ""
     
     var body: some View {
         VStack {
-            Button(action: { self.showDetail.toggle() }) {
-                Text("Show Details")
-            }
-            .padding()
-            .background(.purple)
-            .clipShape(RoundedRectangle(cornerRadius: 30))
-            .foregroundColor(.white)
+            TextField("Enter ur name", text: $name)
+                .padding(.leading)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            if showDetail {
-                Text("Show")
+            SecureField("Enter password", text: $pass)
+                .padding(.leading)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            if name .isEmpty == false && pass .isEmpty == false {
+                Text("Hello, \(name)")
+                    .padding()
             }
         }
     }
