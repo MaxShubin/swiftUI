@@ -4,26 +4,25 @@
 //
 //  Created by Max on 19.02.2022.
 //
-// @State + Picker
+// @State + Stepper
 
 import SwiftUI
 
 struct ContentView: View {
     
-    var colors = ["black", "white", "purple"]
-    
-    @State private var selectedColor = 0
+    @State private var age = 18
         
     var body: some View {
         VStack {
-            Picker(selection: $selectedColor, label: Text("Choise a color")) {
-                ForEach(0..<colors.count) { index in
-                    Text(self.colors[index])
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            
-            Text("Selected color: \(colors[selectedColor])")
+            Stepper("Stepper 1", value: $age, in: 0...100)
+            Stepper("Stepper2", onIncrement: {
+                self.age += 1
+                print("A dding to age")
+            }, onDecrement: {
+                self.age -= 1
+                print("Subtracting to age")
+            })
+            Text("Your age: \(age)")
         }
     }
 }
