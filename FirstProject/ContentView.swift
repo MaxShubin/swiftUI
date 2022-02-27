@@ -4,29 +4,18 @@
 //
 //  Created by Max on 19.02.2022.
 //
-// @State + TextField + SecureField
+// @State + Slider
 
 import SwiftUI
 
 struct ContentView: View {
     
-    @State private var name = ""
-    @State private var pass = ""
+    @State private var celsius: Double = 0
     
     var body: some View {
         VStack {
-            TextField("Enter ur name", text: $name)
-                .padding(.leading)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            SecureField("Enter password", text: $pass)
-                .padding(.leading)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            if name .isEmpty == false && pass .isEmpty == false {
-                Text("Hello, \(name)")
-                    .padding()
-            }
+            Slider(value: $celsius, in: -100...100, step: 0.1)
+            Text("\(celsius) Celsius is \(celsius * 9/5 + 32)")
         }
     }
 }
