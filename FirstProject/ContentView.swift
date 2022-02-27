@@ -4,25 +4,27 @@
 //
 //  Created by Max on 19.02.2022.
 //
-// @State + Toggle
+// @State + Button
 
 import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showHello = true
+    @State private var showDetail = false
     
     var body: some View {
         VStack {
-            Toggle(isOn: $showHello) {
-                Text("Show hello")
+            Button(action: { self.showDetail.toggle() }) {
+                Text("Show Details")
             }
             .padding()
-        
-            if showHello {
-                Text("Hello")
+            .background(.purple)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .foregroundColor(.white)
+            
+            if showDetail {
+                Text("Show")
             }
-        
         }
     }
 }
