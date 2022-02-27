@@ -4,15 +4,26 @@
 //
 //  Created by Max on 19.02.2022.
 //
+// @State + Toggle
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showHello = true
+    
     var body: some View {
-        let colors = Gradient(colors: [.red, .purple, .yellow, ])
-        let gradient = AngularGradient(gradient: colors, center: .center)
-        return Circle()
-            .strokeBorder(gradient, lineWidth: 10)
+        VStack {
+            Toggle(isOn: $showHello) {
+                Text("Show hello")
+            }
+            .padding()
+        
+            if showHello {
+                Text("Hello")
+            }
+        
+        }
     }
 }
 
