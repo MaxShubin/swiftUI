@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Max Shubin")
-            .font(.largeTitle)
-            .padding()
-            .background(Color.purple)
+        let colors = Gradient(colors: [.red, .purple, .yellow, ])
+        let gradient = AngularGradient(gradient: colors, center: .center)
+        return Circle()
+            .strokeBorder(gradient, lineWidth: 10)
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
