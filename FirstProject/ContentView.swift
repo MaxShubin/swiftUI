@@ -4,18 +4,26 @@
 //
 //  Created by Max on 19.02.2022.
 //
-// @State + Slider
+// @State + Picker
 
 import SwiftUI
 
 struct ContentView: View {
     
-    @State private var celsius: Double = 0
+    var colors = ["black", "white", "purple"]
     
+    @State private var selectedColor = 0
+        
     var body: some View {
         VStack {
-            Slider(value: $celsius, in: -100...100, step: 0.1)
-            Text("\(celsius) Celsius is \(celsius * 9/5 + 32)")
+            Picker(selection: $selectedColor, label: Text("Choise a color")) {
+                ForEach(0..<colors.count) { index in
+                    Text(self.colors[index])
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            Text("Selected color: \(colors[selectedColor])")
         }
     }
 }
